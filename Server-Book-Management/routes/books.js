@@ -24,7 +24,7 @@ router.get('/', (req, res, next) => {
 
 
 
-router.post('/add-book/:userId', (req, res, next) => {
+router.post('/add-book', (req, res, next) => {
     Book.create({
         title: req.body.title,
         author: req.body.author,
