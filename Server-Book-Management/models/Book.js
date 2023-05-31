@@ -7,8 +7,14 @@ const bookSchema = new Schema(
             required: true,
             unique: true
         },
-        author: String,
-        publicationYear: Number,
+        author: {
+            type: String,
+            required: true,
+        },
+        publicationYear: {
+            type: Number,
+            required: true,
+        },
         usersWhoFavorited: [{ type: Schema.Types.ObjectId, ref: "User" }],
         usersCurrentlyReading: [{ type: Schema.Types.ObjectId, ref: "User" }],
     },

@@ -42,12 +42,12 @@ router.post('/add-book', (req, res, next) => {
 
 
 
-router.get('book-detail/:id', (req, res, next) => {
+router.get('/book-detail/:id', (req, res, next) => {
     Book.findOne({_id: req.params.id})
         .populate('usersWhoFavorited')
         .populate('usersCurrentlyReading')
         .then((foundBook) => {
-            res.json(foundPost)
+            res.json(foundBook)
         })
         .catch((err) => {
             console.log(err)
@@ -77,7 +77,7 @@ router.post('/edit-book/:bookId', (req, res, next) => {
 
 
 router.get('/delete-book/:bookId', (req, res, next) => {
-    Book.findByIdAndDelete(req.params.postId)
+    Book.findByIdAndDelete(req.params.bookId)
         .then((deletedBook) => {
             res.json(deletedBook)
         })

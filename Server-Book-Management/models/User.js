@@ -11,8 +11,14 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-        firstName: String,
-        lastName: String,
+        firstName: {
+            type: String,
+            required: true,
+        },
+        lastName: {
+            type: String,
+            required: true,
+        },
         favoriteBooks: [{ type: Schema.Types.ObjectId, ref: "Book" }],
         currentlyReading: [{ type: Schema.Types.ObjectId, ref: "Book" }],
     },
